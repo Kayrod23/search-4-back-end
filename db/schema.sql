@@ -8,6 +8,13 @@ CREATE DATABASE items_dev;
 --     name TEXT NOT NULL,
 -- )
 
+CREATE TABLE cart (
+    id SERIAL PRIMARY KEY,
+    item_id INTEGER NOT NULL REFERENCES items (id),
+    item_cost DECIMAL(10,2) NOT NULL CHECK (cost >= 0) REFERENCES items (cost),
+
+)
+
 CREATE TABLE items (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
@@ -15,5 +22,6 @@ CREATE TABLE items (
     cost DECIMAL(10,2) NOT NULL CHECK (cost >= 0),
     -- owner INTEGER NOT NULL REFERENCES users (id),
     quantity TEXT NOT NULL,
-    category TEXT
+    category TEXT,
+    description TEXT,
 );

@@ -9,10 +9,6 @@ const getAllItems = async () => {
     };
 };
 
-
-
-
-
 const getItem = async (id) => {
     try {
         const oneItem = await db.oneOrNone("SELECT * FROM items WHERE id=$1", id);
@@ -25,8 +21,8 @@ const getItem = async (id) => {
 const createItem = async () => {
     try {
         const newItem = await db.one(
-            "INSERT INTO items(name, image, cost, quantity, category) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
-            [item.name, item.image, item.cost, item.owner, item.category]
+            "INSERT INTO items(name, image, cost, quantity, category, description) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+            [item.name, item.image, item.cost, item.owner, item.category, item.description]
         );
     } catch (error) {
         console.error(error);
@@ -36,8 +32,8 @@ const createItem = async () => {
 const updateItem = async (id) => {
     try {
         const updatedItem = await db.one(
-            "UPDATE items SET name=$1, image=$2, cost=$3, quantity=$5, category=$6 WHERE id=$7 RETURNING *",
-            [item.name, item.image, item.cost, item.owner, item.category, id]
+            "UPDATE items SET name=$1, image=$2, cost=$3, quantity=$5, category=$6, description=$7 WHERE id=$8 RETURNING *",
+            [item.name, item.image, item.cost, item.owner, item.category, item.description, id]
         );
         return updatedItem;
     } catch (error) {
