@@ -13,3 +13,8 @@ INSERT INTO items (name, image, cost, quantity, category, description) VALUES
 '1', 
 'laptop',
 'The MacBook Air is a line of laptop computers developed and manufactured by Apple since 2008. It features a thin, light structure in a machined aluminum case and a 13-inch screen.');
+
+INSERT INTO cart (item_id, total) VALUES 
+('1'),
+('1'),
+('2');

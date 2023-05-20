@@ -24,11 +24,12 @@ const createItem = async () => {
             "INSERT INTO items(name, image, cost, quantity, category, description) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
             [item.name, item.image, item.cost, item.owner, item.category, item.description]
         );
+        return newItem
     } catch (error) {
         console.error(error);
     };
 };
-//owner,
+
 const updateItem = async (id) => {
     try {
         const updatedItem = await db.one(
@@ -40,7 +41,7 @@ const updateItem = async (id) => {
         console.error(error);
     };
 };
-//owner=$4,
+
 const deleteItem = async (id) => {
     try {
         const deletedItem = await db.one("DELETE FROM items WHERE id=$1 RETURNING *", [id]);
