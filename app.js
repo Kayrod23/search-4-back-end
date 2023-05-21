@@ -13,8 +13,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/items", itemsController);
-app.use("/cart", cartController);
-app.use("/cartItem", cartItemController);
+// app.use("/cart", cartController);
+// app.use("/cartItem", cartItemController);
 
 app.get("*", (req, res) => {
     res.status(404).json({error: "Not Found"});
