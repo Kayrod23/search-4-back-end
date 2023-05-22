@@ -19,7 +19,7 @@ CREATE TABLE items (
     description TEXT
 );
 
-CREATE TABLE cart (
-    id SERIAL PRIMARY KEY,
-    item_id INTEGER NOT NULL REFERENCES items (id)
-);
+-- CREATE TABLE cart (
+--     id SERIAL PRIMARY KEY,
+--     item_id INTEGER NOT NULL REFERENCES items (id)
+-- );

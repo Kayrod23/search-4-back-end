@@ -30,11 +30,11 @@ const createItem = async (item) => {
     };
 };
 
-const updateItem = async (id) => {
+const updateItem = async (id, item) => {
     try {
         const updatedItem = await db.one(
-            "UPDATE items SET name=$1, image=$2, cost=$3, quantity=$5, category=$6, description=$7 WHERE id=$8 RETURNING *",
-            [item.name, item.image, item.cost, item.owner, item.category, item.description, id]
+            "UPDATE items SET name=$1, image=$2, cost=$3, quantity=$4, category=$5, description=$6 WHERE id=$7 RETURNING *",
+            [item.name, item.image, item.cost, item.quantity, item.category, item.description, id]
         );
         return updatedItem;
     } catch (error) {
