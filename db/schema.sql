@@ -16,7 +16,7 @@ CREATE TABLE items (
     quantity TEXT NOT NULL,
     category TEXT,
     description TEXT,
-    email Text
+    email TEXT
 );
 
 -- CREATE TABLE cart (
