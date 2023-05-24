@@ -13,10 +13,10 @@ CREATE TABLE items (
     name TEXT NOT NULL,
     image TEXT,
     cost DECIMAL(10,2) NOT NULL CHECK (cost >= 0),
-    -- owner INTEGER NOT NULL REFERENCES users (id),
     quantity TEXT NOT NULL,
     category TEXT,
-    description TEXT
+    description TEXT,
+    email Text
 );
 
 -- CREATE TABLE cart (
